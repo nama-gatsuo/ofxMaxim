@@ -38,11 +38,11 @@
 	Since there is no round() function in windows, use this replacement
 */
 
-#ifdef _WIN32
-static double round(double number) {
-    return number < 0.0 ? ceil(number - 0.5) : floor(number + 0.5);
-}
-#endif
+//#ifdef _WIN32
+//static double round(double number) {
+//    return number < 0.0 ? ceil(number - 0.5) : floor(number + 0.5);
+//}
+//#endif
 
 /*  Maximilian can be configured to load ogg vorbis format files using the 
 *   loadOgg() method.

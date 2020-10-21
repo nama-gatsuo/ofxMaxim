@@ -48,6 +48,7 @@
 #include <string.h>
 #include <cstdlib>
 #include "math.h"
+#include <algorithm>
 
 using namespace std;
 #ifndef PI
@@ -357,19 +358,19 @@ public:
 class maxiMap {
 public:
 	static double inline linlin(double val, double inMin, double inMax, double outMin, double outMax) {
-		val = max(min(val, inMax), inMin);
+		val = std::max(std::min(val, inMax), inMin);
 		return ((val - inMin) / (inMax - inMin) * (outMax - outMin)) + outMin;
 	}
 	
 	static double inline linexp(double val, double inMin, double inMax, double outMin, double outMax) {
 		//clipping
-		val = max(min(val, inMax), inMin);
+		val = std::max(std::min(val, inMax), inMin);
 		return pow((outMax / outMin), (val - inMin) / (inMax - inMin)) * outMin;
 	}
 	
 	static double inline explin(double val, double inMin, double inMax, double outMin, double outMax) {
 		//clipping
-		val = max(min(val, inMax), inMin);
+		val = std::max(std::min(val, inMax), inMin);
 		return (log(val/inMin) / log(inMax/inMin) * (outMax - outMin)) + outMin;
 	}
 	
